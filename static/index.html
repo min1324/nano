@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+	<title>upload</title>
+	<link rel="icon" href="assets/img/favicon.ico">
+	<link rel="stylesheet" href="assets/css/amazeui.min.css">
+	<link rel="stylesheet" href="assets/css/amazeui.css">
+
+</head>
+
+<body>
+	<header class="am-topbar am-topbar-fixed-top">
+		<meta charset="utf-8">
+		<h1 class="am-topbar-brand">
+			<a href="#">upload</a>
+		</h1>
+		<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+			data-am-collapse="{target: '#doc-topbar-collapse'}">
+			<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+		<div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
+			<ul class="am-nav am-nav-pills am-topbar-nav">
+				<li class="am-active">
+					<a href="/">文件</a>
+				</li>
+				<li>
+					<a href="/upload">上传</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+
+	<div class="am-panel am-panel-default" style="position: relative;margin: 100px;">
+		<div class="am-panel-hd">文件</div>
+		<table class="am-table am-table-bordered  am-table-hover am-table-centered">
+			<thead>
+				<tr class="am-one-line">
+					<th>名</th>
+					<th style="width:25%">文件大小</th>
+					<th style="width:15%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{range $v:=$.files}}
+				<tr>
+					<td>
+						<a href="/download?id={{$v.Path}}">{{$v.Name}}</a>
+					</td>
+					<td>{{$v.Size}}</td>
+					<td><a href="/delete?id={{$v.Path}}" class="am-close am-close-alt ">&times;</a></td>
+				</tr>
+				{{end}}
+			</tbody>
+		</table>
+	</div>
+	</div>
+
+	<footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer="{  }">
+		<div class="am-footer-miscs ">
+			<p>由
+				<a href="/" title="min" target="_blank" class="">min</a>
+				提供技术支持
+			</p>
+			<p>CopyRight©2014 Min Inc.</p>
+			<p>京ICP备</p>
+		</div>
+	</footer>
+	<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+		<span class="am-gotop-title"></span>
+		<a href="#top" title=""><i class="am-gotop-icon am-icon-chevron-up"></i></a>
+	</div>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/amazeui.min.js"></script>
+</body>
+
+</html>
